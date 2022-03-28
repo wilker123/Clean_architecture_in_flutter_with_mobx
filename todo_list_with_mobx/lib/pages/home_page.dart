@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
           decoration: InputDecoration(hintText: "Pesquisa..."),
         ),
       ),
+      body: ListView.builder(itemBuilder: itemBuilde,r),
     );
   }
 }
