@@ -14,4 +14,9 @@ class HomeController {
   addItem(ItemModel model) {
     listItems.add(model);
   }
+
+  @action
+  removeItem(ItemModel model) {
+    listItems.removeWhere((item) => item.title == model.title);
+  }
 }
