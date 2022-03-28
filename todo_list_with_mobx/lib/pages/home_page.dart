@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../controllers/home_controller.dart';
 import 'item_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = HomeController();
+
   _dialog() {
     showDialog(
       context: context,
@@ -45,9 +48,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: ListView.builder(
-        itemCount: 10,
+        itemCount: controller.listItems.length,
         itemBuilder: (_, index) {
-          return ItemWidget();
+          var item = controller.listItems[index];
+          return ItemWidget(item: item);
         },
       ),
       floatingActionButton: FloatingActionButton(
