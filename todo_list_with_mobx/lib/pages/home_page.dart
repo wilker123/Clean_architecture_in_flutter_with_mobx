@@ -18,20 +18,22 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (_) {
         return AlertDialog(
-          title: Text("Adicionar item"),
+          title: const Text("Adicionar item"),
           content: TextField(
             onChanged: (value) {},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 border: OutlineInputBorder(), labelText: 'Novo item'),
           ),
           actions: [
             ElevatedButton(
               onPressed: () {},
-              child: Text("Salva"),
+              child: const Text("Salva"),
             ),
             ElevatedButton(
-              onPressed: () {},
-              child: Text("Cancelar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Cancelar"),
             )
           ],
         );
