@@ -5,10 +5,12 @@ import '../models/item_model.dart';
 
 class ItemWidget extends StatelessWidget {
   final ItemModel item;
+  final VoidCallback removeClicked;
 
   const ItemWidget({
     Key? key,
     required this.item,
+    required this.removeClicked,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class ItemWidget extends StatelessWidget {
           trailing: IconButton(
             color: Colors.red,
             icon: const Icon(Icons.remove_circle),
-            onPressed: () {},
+            onPressed: removeClicked,
           ),
         );
       },
