@@ -53,21 +53,28 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: TextField(
-          decoration: InputDecoration(hintText: "Pesquisa..."),
+          onChanged: (value) {
+            controller.setFilter(value);
+          },
+          decoration: const InputDecoration(hintText: "Pesquisa..."),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Text("0"),
+            icon: Observer(
+              builder: (_) {
+                return Text("${controller.totalChecked}");
+              },
+            ),
           )
         ],
       ),
       body: Observer(
         builder: (_) {
           return ListView.builder(
-            itemCount: controller.listItems.length,
+            itemCount: controller.listFiltered.length,
             itemBuilder: (_, index) {
-              var item = controller.listItems[index];
+              var item = controller.listFiltered[index];
               return ItemWidget(
                 item: item,
                 removeClicked: () {
